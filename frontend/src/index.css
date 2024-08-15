@@ -1,0 +1,17 @@
+/* /frontend/src/index.css */
+* {
+  box-sizing: border-box; /* Ensure consistent box-sizing across all elements */
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: system-ui, sans-serif; /* Set the font for the entire body */
+  color: black;
+  background-color: white;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 1.5rem;
+}

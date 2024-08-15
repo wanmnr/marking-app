@@ -1,0 +1,50 @@
+{
+  "name": "marking-app-backend",
+  "version": "1.0.0",
+  "description": "Backend for marking PDF sheets in a MERN stack project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "format": "prettier --write .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.3.0",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.3",
+    "json2csv": "^5.0.7",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.3",
+    "multer": "^1.4.5-lts.1",
+    "pdfkit": "^0.13.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/marking-app-backend.git"
+  },
+  "keywords": [
+    "mern",
+    "backend",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "Your Name",
+  "license": "ISC"
+}
