@@ -4,7 +4,7 @@ const express = require('express'); // Import Express.js
 const router = express.Router(); // Create a new router object
 const Subject = require('../models/Subject'); // Import the Subject model
 const { check, validationResult } = require('express-validator'); // Import Express Validator for input validation
-const authMiddleware = require('../middleware/auth'); // Import custom authentication middleware
+const authMiddleware = require('../middleware/checkAuth'); // Import custom authentication middleware
 
 
 // API: Route for creating a new subject

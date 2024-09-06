@@ -1,4 +1,4 @@
-// Backend - /backend/middleware/auth.js
+// Backend - /backend/middleware/checkAuth.js
 
 const jwt = require('jsonwebtoken'); // Import JSON Web Token for authentication
 
