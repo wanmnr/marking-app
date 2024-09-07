@@ -1,0 +1,22 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "mongodb",
+        "express",
+        "react",
+        "nodejs",
+        "takenote"
+    ],
+    "flagWords": [],
+    "dictionaries": [
+        "custom-dictionary"
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "custom-dictionary",
+            "path": "./.cspell/custom-dictionary.txt",
+            "addWords": true
+        }
+    ]
+}
