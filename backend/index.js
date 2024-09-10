@@ -5,11 +5,14 @@ require('dotenv').config(); // Load environment variables from .env file for sec
 const express = require('express'); // Express.js framework for building web applications
 const mongoose = require('mongoose'); // Mongoose for MongoDB object modeling
 const cors = require('cors'); // Middleware to enable Cross-Origin Resource Sharing (CORS)
+const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/auth'); // Import authentication routes
 const sheetRoutes = require('./routes/sheets'); // Import sheet management routes
 const subjectRoutes = require('./routes/subjects'); // Import subject management routes
 const exportRoutes = require('./routes/export'); // Import export data routes
 const { createDefaultSubject } = require('./utils/subjectUtils'); // Import the utility function
+
+
 
 
 const app = express(); // Initialize Express app
@@ -18,6 +21,7 @@ const PORT = process.env.PORT || 5000; // Define the port for the server, using 
 // Middleware Setup
 app.use(cors()); // Enable Cross-Origin Resource Sharing (CORS) for all routes
 app.use(express.json()); // Parse incoming JSON requests
+app.use(cookieParser());
 
 // Define a route for the root URL
 app.get('/', (req, res) => {
