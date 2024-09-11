@@ -1,52 +1,46 @@
-import { createContext, useState, useContext } from 'react';
-import isAuthenticated from '../services/auth/isAuthenticated';
-import getToken from '../services/auth/getToken';
-import userLogin from '../services/auth/userLogin';
-import userLogout from '../services/auth/userLogout';
-import userSignUp from '../services/auth/userSignUp'; 
+import React, { createContext, useState, useEffect, useCallback } from 'react';
+import apiClient from '../services/apiClient';
 
-const AuthContext = createContext();
-
-export const useAuth = () => useContext(AuthContext);
+export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [authState, setAuthState] = useState({
-    isAuthenticated: isAuthenticated(),
-    token: getToken(),
-  });
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = async (username, password) => {
-    try {
-      const { token } = await userLogin(username, password); // Extract token from response
-      setAuthState({
-        isAuthenticated: true,
-        token,
+  useEffect(() => {
+    // Check if user is already logged in
+    apiClient.get('/auth/me')
+      .then(response => {
+        setUser(response.data);
+      })
+      .catch(() => {
+        setUser(null);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    } catch (err) {
-      console.error('Login failed:', err.message); // Handle login error
-      throw new Error(err.message); // Re-throw the error to handle it in UI
-    }
+  }, []);
+
+  const login = useCallback((userData) => {
+    setUser(userData);
+  }, []);
+
+  const logout = useCallback(() => {
+    apiClient.post('/auth/logout')
+      .then(() => {
+        setUser(null);
+      })
+      .catch(error => {
+        console.error('Logout failed:', error);
+      });
+  }, []);
+
+  const value = {
+    user,
+    login,
+    logout,
+    loading,
   };
 
-  const logout = () => {
-    userLogout();
-    setAuthState({
-      isAuthenticated: false,
-      token: null,
-    });
-  };
-
-  const signUp = async (username, password) => {
-    try {
-      await userSignUp(username, password); 
-    } catch (err) {
-      throw new Error(err.message); 
-    }
-  };
-
-  return (
-    <AuthContext.Provider value={{ authState, login, logout, signUp }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
