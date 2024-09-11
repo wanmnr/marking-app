@@ -2,10 +2,11 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "mongodb",
         "express",
-        "react",
+        "mongodb",
         "nodejs",
+        "react",
+        "tailwindcss",
         "takenote"
     ],
     "flagWords": [],
