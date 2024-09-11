@@ -1,17 +1,22 @@
-/* /frontend/src/index.css */
-* {
-  box-sizing: border-box; /* Ensure consistent box-sizing across all elements */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");
+
+@tailwind base;
+
+@layer base {
+  html {
+    @apply text-surface;
+    @apply bg-white;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-body-dark;
+  }
 }
 
-body {
-  margin: 0;
-  padding: 1rem;
-  font-family: system-ui, sans-serif; /* Set the font for the entire body */
-  color: black;
-  background-color: white;
-}
+@tailwind components;
+@tailwind utilities;
 
-h1 {
-  font-weight: 800;
-  font-size: 1.5rem;
+/* Custom styles */
+p {
+  @apply leading-[1.6];
 }
