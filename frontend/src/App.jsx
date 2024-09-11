@@ -1,24 +1,59 @@
 // Frontend - /frontend/src/App.jsx
-
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Import routing components
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import PrivateRoute from './components/PrivateRoute';
-import UploadSheet from './components/UploadSheet';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/Layout';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
+import PrivateRoute from './routes/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
+import UploadSheet from './pages/UploadSheet';
+import ExamSheetViewer from './pages/ExamSheetViewer';
+import SubjectManagement from './pages/SubjectManagement';
+import ExportResults from './pages/ExportResults';
+import Settings from './pages/Settings';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} /> {/* Route for the login page */}
-      <Route path="/register" element={<Register />} /> {/* Route for the registration page */}
-      <Route path="/" element={<PrivateRoute />}>
-        <Route index element={<Dashboard />} /> {/* Nested protected route for the dashboard */}
-        <Route path="/upload" element={<UploadSheet />}/>
+      <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+      <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        } />
+        <Route path="upload" element={
+          <PrivateRoute>
+            <UploadSheet />
+          </PrivateRoute>
+        } />
+        <Route path="exam/:id" element={
+          <PrivateRoute>
+            <ExamSheetViewer />
+          </PrivateRoute>
+        } />
+        <Route path="subjects" element={
+          <PrivateRoute>
+            <SubjectManagement />
+            </PrivateRoute>
+          } />
+        <Route path="export" element={
+          <PrivateRoute>
+            <ExportResults />
+          </PrivateRoute>
+        } />
+        <Route path="settings" element={
+          <PrivateRoute>
+            <Settings />
+          </PrivateRoute>
+        } />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
 }
 
-export default App; // Export the App component as the default export
+export default App;
