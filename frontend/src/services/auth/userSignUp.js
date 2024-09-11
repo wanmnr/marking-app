@@ -1,4 +1,4 @@
-// frontend - src/services/auth/userLogin.js
+// frontend - src/services/auth/userSignUp.js
 import axios from 'axios';
 import errorHandler from '../helpers/errorHandler';
 

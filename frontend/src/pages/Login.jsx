@@ -1,22 +1,19 @@
 // src/pages/Login.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
-import userLogin from '../services/auth/userLogin';
 import { useAuth } from '../hooks/useAuth';
 
 function Login() {
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, error } = useAuth();
 
   const handleLogin = async (formData) => {
     try {
-      const { user, isAuth } = await userLogin(formData.username, formData.password);
-      login(user);
+      await login(formData.username, formData.password);
       navigate('/');
     } catch (err) {
-      setError(err.message);
+      // Error is already handled in the AuthContext
     }
   };
 
