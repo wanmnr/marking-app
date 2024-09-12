@@ -1,11 +1,10 @@
 // frontend - src/services/auth/userSignUp.js
 import axios from 'axios';
-import apiClient from '../apiClient';
-import errorHandler from '../../helpers/errorHandler';
+import errorHandler from '../helpers/errorHandler';
 
 async function userSignUp({ username, email, password }) {
   try {
-    const { data } = await apiClient.post('/auth/register', {
+    const { data } = await axios.post('api/users', {
       user: { username, email, password },
     });
 

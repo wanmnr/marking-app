@@ -15,4 +15,3 @@ async function userLogin(username, password) {
     );
   }
 }
-export default userLogin;
