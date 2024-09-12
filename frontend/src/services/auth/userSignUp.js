@@ -1,6 +1,6 @@
 // frontend - src/services/auth/userSignUp.js
 import axios from 'axios';
-import errorHandler from '../helpers/errorHandler';
+import errorHandler from '../../helpers/errorHandler';
 
 async function userSignUp({ username, email, password }) {
   try {
