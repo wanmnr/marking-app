@@ -1,22 +1,18 @@
-// frontend - src/services/auth/userSignUp.js
-import axios from 'axios';
-import errorHandler from '../../helpers/errorHandler';
+import apiClient from '../apiClient';
+import errorHandler from '../errorHandler';
 
-async function userSignUp({ username, email, password }) {
+async function userSignUp(userData) {
   try {
-    const { data } = await axios.post('api/users', {
-      user: { username, email, password },
-    });
+    // Sending the signup request with the provided user data (username, email, password)
+    const response = await apiClient.post('/auth/signup', userData);
 
-    const { user } = data;
-    const headers = { Authorization: `Token ${user.token}` };
+    // Extracting the user information and token from the response
+    const loggedUser = response.data;
 
-    const loggedIn = { headers, isAuth: true, loggedUser: user };
-
-    localStorage.setItem('loggedUser', JSON.stringify(loggedIn));
-
-    return loggedIn;
+    // Returning the full loggedUser object to be handled by AuthContext
+    return { loggedUser };
   } catch (error) {
+    // Using the errorHandler to throw a custom error
     throw errorHandler(error);
   }
 }
