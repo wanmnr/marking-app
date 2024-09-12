@@ -1,3 +1,4 @@
+// src/components/Layout.jsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
@@ -6,11 +7,11 @@ import Menu from './Menu';
 
 function Layout() {
   return (
-    <div className="app-layout">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <div className="main-content">
+      <div className="flex flex-grow">
         <Menu />
-        <main>
+        <main className="flex-grow p-6">
           <Outlet />
         </main>
       </div>
