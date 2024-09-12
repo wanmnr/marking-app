@@ -26,6 +26,11 @@ router.post('/register', async (req, res) => {
     // Create payload and sign token
     const payload = { user: { id: user.id } };
 
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not defined');
+      return res.status(500).json({ msg: 'Server configuration error' });
+    }
+
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
@@ -83,6 +88,11 @@ router.post('/login', async (req, res) => {
     }
 
     const payload = { user: { id: user.id } };
+
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not defined');
+      return res.status(500).json({ msg: 'Server configuration error' });
+    }
 
     jwt.sign(
       payload,
