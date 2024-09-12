@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-// ErrorBoundary class component to catch and handle errors
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,20 @@ class ErrorBoundary extends Component {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+          <div className="max-w-md w-full space-y-8 p-10 bg-white shadow rounded-xl">
+            <div className="text-center">
+              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+                Oops! Something went wrong.
+              </h2>
+              <p className="mt-2 text-sm text-gray-600">
+                We're sorry for the inconvenience. Please try refreshing the page or contact support if the problem persists.
+              </p>
+            </div>
+          </div>
+        </div>
+      );
     }
     return this.props.children;
   }
