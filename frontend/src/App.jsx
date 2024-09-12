@@ -30,11 +30,6 @@ function App() {
             <UploadSheet />
           </PrivateRoute>
         } />
-        <Route path="exam/:id" element={
-          <PrivateRoute>
-            <ExamSheetViewer />
-          </PrivateRoute>
-        } />
         <Route path="subjects" element={
           <PrivateRoute>
             <SubjectManagement />
