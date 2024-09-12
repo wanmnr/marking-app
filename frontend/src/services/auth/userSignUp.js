@@ -1,5 +1,5 @@
 import apiClient from '../apiClient';
-import errorHandler from '../../errorHandler';
+import errorHandler from '../../helpers/errorHandler';
 
 async function userSignUp(userData) {
   try {
