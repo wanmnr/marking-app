@@ -8,7 +8,6 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import UploadSheet from './pages/UploadSheet';
-import ExamSheetViewer from './pages/ExamSheetViewer';
 import SubjectManagement from './pages/SubjectManagement';
 import ExportResults from './pages/ExportResults';
 import Settings from './pages/Settings';
