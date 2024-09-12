@@ -1,9 +1,13 @@
-# Test User
+# TESTING
+
+## Test User
 
 testuser
 
 Pass+404
 
+## Development Environment
+
 ```bash
-npm start
+npm run dev
 ```
