@@ -6,6 +6,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
+import './index.css';
 
 const container = document.getElementById('root');
 
