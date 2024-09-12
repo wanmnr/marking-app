@@ -39,6 +39,7 @@ export function AuthProvider({ children }) {
       await userLogout();
       setUser(null);
       localStorage.removeItem('token');
+      localStorage.removeItem('loggedUser'); // Add this line
       setError(null);
     } catch (error) {
       setError(error.message);
