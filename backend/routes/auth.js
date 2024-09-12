@@ -8,7 +8,7 @@ const User = require('../models/User'); // Import the User model
 
 // API: Route for user registration
 router.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password } = req.body;
 
   try {
     let user = await User.findOne({ username });
@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ msg: 'User already exists' });
     }
 
-    user = new User({ username, password });
+    user = new User({ username, email, password });
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
@@ -26,6 +26,7 @@ router.post('/register', async (req, res) => {
     // Create payload and sign token
     const payload = { user: { id: user.id } };
 
+    // Check If JWT_SECRET is NULL
     if (!process.env.JWT_SECRET) {
       console.error('JWT_SECRET is not defined');
       return res.status(500).json({ msg: 'Server configuration error' });
@@ -58,7 +59,7 @@ router.post('/register', async (req, res) => {
     // Check for specific error types
     if (err.name === 'MongoError' && err.code === 11000) {
       // Unique constraint violation
-      return res.status(400).json({ error: 'Username already exists' });
+      return res.status(400).json({ error: 'Username or email already exists' });
     } else if (err.name === 'ValidationError') {
       // Mongoose validation errors
       const errors = Object.values(err.errors).map((err) => err.message);
