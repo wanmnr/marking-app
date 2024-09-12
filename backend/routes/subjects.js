@@ -1,5 +1,4 @@
 // Backend - /backend/routes/subjects.js
-
 const express = require('express'); // Import Express.js
 const router = express.Router(); // Create a new router object
 const Subject = require('../models/Subject'); // Import the Subject model
