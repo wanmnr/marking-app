@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
+import { SheetProvider } from './contexts/SheetContext.jsx';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import './index.css';
@@ -16,13 +17,15 @@ if (container) {
   root.render(
     <React.StrictMode>
       <ErrorBoundary>
-        <Router>
-          <AuthProvider>
-            <ThemeProvider>
-              <App />
-            </ThemeProvider>
-          </AuthProvider>
-        </Router>
+        <AuthProvider>
+          <ThemeProvider>
+            <SheetProvider>
+              <Router>
+                <App />
+              </Router>
+            </SheetProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </ErrorBoundary>
     </React.StrictMode>
   );
