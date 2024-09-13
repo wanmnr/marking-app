@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 
-export const useAuth = () => {
+// Custom hook to access authentication-related actions and state
+export function useAuth() {
   return useContext(AuthContext);
-};
+}
