@@ -8,9 +8,9 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoute from './routes/PrivateRoute';
 import PublicRoute from './routes/PublicRoute';
 import UploadSheet from './pages/UploadSheet';
-import SubjectManagement from './pages/SubjectManagement';
-import ExportResults from './pages/ExportResults';
-import Settings from './pages/Settings';
+// import SubjectManagement from './pages/SubjectManagement';
+// import ExportResults from './pages/ExportResults';
+// import Settings from './pages/Settings';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             <UploadSheet />
           </PrivateRoute>
         } />
-        <Route path="subjects" element={
+        {/* <Route path="subjects" element={
           <PrivateRoute>
             <SubjectManagement />
             </PrivateRoute>
@@ -43,7 +43,7 @@ function App() {
           <PrivateRoute>
             <Settings />
           </PrivateRoute>
-        } />
+        } /> */}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
