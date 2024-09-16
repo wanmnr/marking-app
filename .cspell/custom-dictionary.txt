@@ -2,5 +2,6 @@ exceljs
 MERN
 Roboto
 signup
+tesseract
 testuser
 toastify
