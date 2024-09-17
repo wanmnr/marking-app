@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Welcome';
-import UploadSheet from './pages/UploadSheet';
+// import UploadSheet from './pages/UploadSheet';
 // import SubjectManagement from './pages/SubjectManagement';
 // import ExportResults from './pages/ExportResults';
 // import Settings from './pages/Settings';
@@ -31,11 +31,11 @@ const AppRoutes = () => (
             <Dashboard />
         </PrivateRoute>
       } />
-      <Route path="upload" element={
+      {/* <Route path="upload" element={
         <PrivateRoute>
             <UploadSheet />
         </PrivateRoute>
-      } />
+      } /> */}
       {/* <Route path="subjects" element={
           <PrivateRoute>
             <SubjectManagement />
