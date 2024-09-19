@@ -10,7 +10,7 @@ function Menu() {
 
   const menuItems = [
     { to: "/", text: "Dashboard" },
-    { to: "/upload", text: "Upload Sheet" },
+    { to: "/sheet", text: "Sheet" },
     { to: "/subjects", text: "Subject Management" },
     { to: "/export", text: "Export Results" },
     { to: "/settings", text: "Settings" },
