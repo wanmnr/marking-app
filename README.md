@@ -1,4 +1,4 @@
-# TESTING
+# Experimental: Exam Sheet Marking App
 
 ## Test User
 
