@@ -1,4 +1,4 @@
-// frontend/src/components/Table.jsx
+// frontend/src/components/common/Table.jsx
 import React from 'react';
 
 /**
