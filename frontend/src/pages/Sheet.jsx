@@ -1,7 +1,7 @@
 // frontend/src/pages/SheetPage.js
 import React from 'react';
-import { useSheetState } from '../context/SheetContext';
-import Table from '../components/Reusable/Table';
+import { useSheetState } from '../contexts/SheetContext';
+import Table from '../components/common/Table';
 
 /**
  * SheetPage - Page component for uploading sheets and displaying them in a table.
