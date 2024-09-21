@@ -1,7 +1,7 @@
 // src/components/Menu.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
 function Menu() {
   const { user } = useAuth();
