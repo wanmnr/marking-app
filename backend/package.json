@@ -2,10 +2,10 @@
   "name": "marking-app-backend",
   "version": "1.0.0",
   "description": "Backend for marking PDF sheets in a MERN stack project.",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "lint": "eslint ."
   },
@@ -21,7 +21,9 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.3.3",
     "multer": "^1.4.5-lts.1",
-    "pdfkit": "^0.13.0"
+    "pdfjs-dist": "^4.6.82",
+    "pdfkit": "^0.13.0",
+    "tesseract.js": "^5.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -46,6 +48,6 @@
     "mongodb",
     "mongoose"
   ],
-  "author": "Your Name",
-  "license": "ISC"
+  "author": "Wan",
+  "license": "Apache-2.0"
 }
