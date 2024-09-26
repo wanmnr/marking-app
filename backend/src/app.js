@@ -1,4 +1,4 @@
-// Backend - /backend/index.js
+// Backend - /backend/app.js
 
 require('dotenv').config(); // Load environment variables from .env file for securing whatever key
 
@@ -6,10 +6,10 @@ const express = require('express'); // Express.js framework for building web app
 const mongoose = require('mongoose'); // Mongoose for MongoDB object modeling
 const cors = require('cors'); // Middleware to enable Cross-Origin Resource Sharing (CORS)
 const cookieParser = require('cookie-parser');
-const authRoutes = require('./routes/auth'); // Import authentication routes
-const sheetRoutes = require('./routes/sheets'); // Import sheet management routes
-const subjectRoutes = require('./routes/subjects'); // Import subject management routes
-const exportRoutes = require('./routes/export'); // Import export data routes
+const authRoutes = require('./api/routes/authRoutes'); // Import authentication routes
+const sheetRoutes = require('./api/routes/sheetRoutes'); // Import sheet management routes
+const subjectRoutes = require('./api/routes/subjects'); // Import subject management routes
+const exportRoutes = require('./api/routes/export'); // Import export data routes
 const { createDefaultSubject } = require('./utils/subjectUtils'); // Import the utility function
 
 const app = express(); // Initialize Express app
