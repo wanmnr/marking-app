@@ -3,7 +3,7 @@
 const express = require('express'); // Import Express.js
 const router = express.Router(); // Create a new router object
 const Sheet = require('../models/Sheet'); // Import the Sheet model
-const authMiddleware = require('../middleware/checkAuth'); // Import custom authentication middleware
+const authMiddleware = require('../middleware/authMiddleware'); // Import custom authentication middleware
 const json2csv = require('json2csv').parse; // Import json2csv for converting JSON data to CSV
 const ExcelJS = require('exceljs'); // Import ExcelJS for generating Excel files
 const PDFDocument = require('pdfkit'); // Import PDFKit for generating PDF files
