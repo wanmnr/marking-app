@@ -11,3 +11,8 @@ trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+# LICENSE file
+[LICENSE]
+# Disable the MD041 rule
+mdx_first_line_heading = false
