@@ -1,6 +1,6 @@
-// Backend - /backend/utils/subjectUtils.js
+// backend/src/utils/subjectUtils.js
 
-const Subject = require('../models/Subject'); // Import the Subject model
+const Subject = require('../api/models/Subject'); // Import the Subject model
 
 // Function to create the default subject if none exists
 async function createDefaultSubject() {
@@ -13,7 +13,7 @@ async function createDefaultSubject() {
       ],
     },
   };
-  
+
   try {
     const subjectExists = await Subject.findOne({ name: defaultSubject.name });
     if (!subjectExists) {
